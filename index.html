@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Taxnet</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <div class="container">
+
+        <div class="tabs">
+
+            <ul class="tabs-caption">
+                <button type="button" class="active">Фильмы</button>
+                <button type="button">Закладки</button>
+            </ul>
+
+            <div class="tabs-content active">
+                <div class="row">
+                    <div class="search-film">
+                        <input type="search" placeholder="Введите название фильма">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="tags-film">
+                        <label for="robot">
+                            <input type="checkbox" id="robot">
+                            Роботы
+                        </label>
+                        <label for="race">
+                            <input type="checkbox" id="race">
+                            Гонки
+                        </label>
+                        <label for="fantasy">
+                            <input type="checkbox" id="fantasy">
+                            Фэнтези
+                        </label>
+                    </div>
+                </div>
+                <div class="films" id="rez">
+
+                </div>
+                <div class="btn-load">
+                    <a href="#" id="loadMore"> Показать еще</a>
+                </div>
+            </div>
+
+            <div class="tabs-content">
+                Содержимое второго блока
+            </div>
+
+        </div>
+
+
+    </div>
+</header>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
