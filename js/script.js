@@ -42,7 +42,7 @@
             }
 
             for (var i = this.offset; this.offset <= limit; i++) {
-                for (j=0,j<this.filmData.length;j++) {
+                for (var j = 0; j < this.filmData.length; j++) {
                     if (dataSearch === this.filmData['title']){
                         console.log(dataSearch);
                         resData.push(this.filmData[i]);
