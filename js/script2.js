@@ -33,22 +33,14 @@
         this.getPaginationData = function () {
             var resData = [],
                 limit = (this.offset + this.pageLimit - 1);
-            var dataSearch = $('.js-search').val();
-            console.log(dataSearch);
-
 
             if (limit > this.filmData.length) {
                 limit = this.filmData.length - 1;
             }
 
             for (var i = this.offset; this.offset <= limit; i++) {
-                for (j=0,j<this.filmData.length;j++) {
-                    if (dataSearch === this.filmData['title']){
-                        console.log(dataSearch);
-                        resData.push(this.filmData[i]);
-                    }
-                }
-
+                // ---
+                resData.push(this.filmData[i]);
                 // ---
 
                 this.offset++;

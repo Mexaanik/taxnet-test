@@ -17,9 +17,10 @@
             <div class="tabs-content active">
                 <div class="row">
                     <div class="search-film">
-                        <input type="search" placeholder="Введите название фильма">
+                        <input type="search" placeholder="Введите название фильма" class="js-search" value="">
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="tags-film">
                         <label for="robot">
@@ -36,11 +37,11 @@
                         </label>
                     </div>
                 </div>
-                <div class="films" id="rez">
 
-                </div>
+                <div class="films js-films"></div>
+
                 <div class="btn-load">
-                    <button type="button" id="loadMore"> Показать еще</button>
+                    <button type="button" class="js-load-more-btn"> Показать еще</button>
                 </div>
             </div>
             <div class="tabs-content">
@@ -52,6 +53,7 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/films.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
