@@ -18,7 +18,7 @@
         this.tagsData = [];
         this.$container = null;
         this.$btnMore = null;
-
+        this.resTags = [];
         var self = this;
 
         this.loadJsonData = function () {
@@ -112,19 +112,25 @@
             this.renderList();
         };
 
-        this.setSearchTags = function () {
+        this.setSearchTags = function (b) {
+            this.searchTags = b;
             this.$container.html('');
             this.offset = 0;
             this.resCount = 1;
             this.renderList();
 
-            //честно спизжено с интернета не понмаю как работает
-            this.tagsArr = $.map($(":checkbox:checked"), function (el) {
-                return $(el).val();
-            });
-            console.log(this.tagsArr);
+            if (this.searchTags){
+                this.resTags.push(this.searchTags);
+            }
         };
 
+        this.unsetTags = function (s) {
+            var index = this.resTags.indexOf(s);
+
+            if (index>-1){
+                this.resTags.splice(index,1)
+            }
+        };
 
         this.renderList = function () {
             var filmData = this.getPaginationData(),
@@ -175,7 +181,11 @@
     });
 
     $(document).on('change', '.js-checkbox', function (e) {
-        film.setSearchTags($(this).val());
+        if ($(this).is(':checked')) {
+            film.setSearchTags($(this).val());
+        } else {
+            film.unsetTags($(this).val());
+        }
     });
 
 })(jQuery);
