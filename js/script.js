@@ -72,7 +72,7 @@
 
                     var title = this.filmData[this.offset].title.toLowerCase(),
                         showButtonMore = false;
-
+                    //this.inTags(this.resTags,this.filmData);
                     if (title.indexOf(this.searchQuery.toLowerCase()) !== -1) {
                         if (item <= this.pageLimit) {
                             resData.push(this.filmData[this.offset]);
@@ -104,6 +104,15 @@
             return resData;
         };
 
+        this.inTags = function (search, tags) {
+            for (var i = 0; i < search.length; i++) {
+                if (tags.indexOf(search[i]) !== -1) {
+                    return true;
+                }
+            }
+            return false;
+        };
+
         this.setSearchQuery = function (v) {
             this.searchQuery = v ? v : null;
             this.$container.html('');
@@ -113,22 +122,26 @@
         };
 
         this.setSearchTags = function (b) {
-            this.searchTags = b;
+            this.searchTags = b ? b : null;
             this.$container.html('');
             this.offset = 0;
             this.resCount = 1;
             this.renderList();
 
-            if (this.searchTags){
+            if (this.searchTags) {
                 this.resTags.push(this.searchTags);
             }
         };
 
         this.unsetTags = function (s) {
             var index = this.resTags.indexOf(s);
+            this.$container.html('');
+            this.offset = 0;
+            this.resCount = 1;
+            this.renderList();
 
-            if (index>-1){
-                this.resTags.splice(index,1)
+            if (index > -1) {
+                this.resTags.splice(index, 1)
             }
         };
 
