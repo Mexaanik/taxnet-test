@@ -59,21 +59,20 @@
         this.getPaginationData = function () {
             var resData = [],
                 limit = (this.offset + this.pageLimit - 1);
-
             if (limit > this.filmData.length) {
                 limit = this.filmData.length - 1;
             }
 
-            if (this.searchQuery) {
+            if (this.searchQuery || this.resTags.length > 0) {
                 for (var item = 1; item <= this.pageLimit + 1;) {
                     if (this.endFilmList()) {
                         break;
                     }
 
                     var title = this.filmData[this.offset].title.toLowerCase(),
+                        tags = this.filmData[this.offset].tags,
                         showButtonMore = false;
-                    //this.inTags(this.resTags,this.filmData);
-                    if (title.indexOf(this.searchQuery.toLowerCase()) !== -1) {
+                    if (title.indexOf(this.searchQuery.toLowerCase()) !== -1 && this.inTags(this.resTags,tags)) {
                         if (item <= this.pageLimit) {
                             resData.push(this.filmData[this.offset]);
                         } else {
@@ -100,7 +99,6 @@
 
                 this.$btnMore.show();
             }
-
             return resData;
         };
 
@@ -112,6 +110,9 @@
             }
             return false;
         };
+
+
+
 
         this.setSearchQuery = function (v) {
             this.searchQuery = v ? v : null;
