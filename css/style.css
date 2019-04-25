@@ -2,6 +2,24 @@
     width: 1200px;
 }
 
+span{
+    font-size: 30px;
+    margin-top: -3%;
+    cursor: pointer;
+    float: right;
+    display: none;
+}
+.active{
+    display: block;
+}
+.removeStarFavorites{
+    font-size: 30px;
+    margin-top: -3%;
+    cursor: pointer;
+    float: right;
+    /*display: none;*/
+}
+
 .nav-tabs {
     text-align: center;
     margin: 50px auto;
